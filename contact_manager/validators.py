@@ -26,20 +26,6 @@ class EmailDescriptor:
             raise ValueError(f"email '{value}' must be string.")
 
 
-class EmailDescriptor:
-    def __get__(self, instance, owner):
-        return instance._email
-    
-    def __set__(self, instance, value):
-        if isinstance(value, str):
-            if re.match(r"^\S+@\S+\.\S+$", value):
-                instance._email = value
-            else:
-                raise ValueError(f"'{value}' is not valid email.")
-        else:
-            raise ValueError(f"email '{value}' must be string.")
-
-
 class PhoneDescriptor:
     def __get__(self, instance, owner):
         return instance._phone
@@ -53,3 +39,27 @@ class PhoneDescriptor:
         else:
             raise ValueError(f"phone '{value}' must be string.")
 
+
+class UsernameDescriptor:
+    def __get__(self, instance, owner):
+        return instance._username
+    
+    def __set__(self, instance, value):
+        if isinstance(value, str):
+            if value.isalpha():
+                instance._username = value
+            else:
+                raise ValueError(f"'{value}' is not valid username.")
+        else:
+            raise ValueError(f"username '{value}' must be string.")
+
+
+# class PasswordDescriptor:
+#     def __get__(self, instance, owner):
+#         return instance._password
+    
+#     def __set__(self, instance, value):
+#         if isinstance(value, str):
+#             instance._password = value
+#         else:
+#             raise ValueError(f"password '{value}' must be string.")
