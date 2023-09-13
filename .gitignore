@@ -1,3 +1,9 @@
 
-# ignore __pycache__
+# ignore __pycache__ file
 __pycache__
+
+# ignore data file
+data
+
+# ignore .pkl files (no need bcas they are in data)
+*.pkl
