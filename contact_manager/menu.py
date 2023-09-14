@@ -49,7 +49,8 @@ class Menu:
                 self.parent.display()
                 self.parent.execute()
             else:
-                print(">>> bye bye ;*")
+                os.system("cls")
+                print("bye bye ;*")
         elif 1 <= choice <= len(self.items):
             item = self.items[choice - 1]
             if isinstance(item, Item):
