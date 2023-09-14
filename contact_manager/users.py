@@ -54,7 +54,7 @@ class User:
         if username in data:
             user = data[username]
             if user.password == hashlib.sha256(password.encode('utf-8')).hexdigest():
-                return True
+                return data[username]
             else:
                 raise ValueError("inlavid password.")
         else:
