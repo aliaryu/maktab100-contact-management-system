@@ -116,7 +116,10 @@ class Contact:
 
 
     def __str__(self):
-        return f"name : {self.name}\nemail: {self.email}\nphone: {self.phone}"
+        if self.note == None:
+            return f"name : {self.name}\nemail: {self.email}\nphone: {self.phone}"
+        else:
+            return f"name : {self.name}\nemail: {self.email}\nphone: {self.phone}\nnote: {self.note}"
 
     def __repr__(self):
         return f"Contact('{self.name}', ...)"
